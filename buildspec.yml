@@ -9,7 +9,7 @@ phases:
       - echo "Installing jq..."
       - curl -qL -o jq https://stedolan.github.io/jq/download/linux64/jq && chmod +x ./jq
       - echo "Validating packer script"
-      - packer validate aws-ubuntu.pkr.hcl
+      - ./packer validate aws-ubuntu.pkr.hcl
   build:
     commands:
       ### HashiCorp Packer cannot currently obtain the AWS CodeBuild-assigned role and its credentials
@@ -22,7 +22,7 @@ phases:
       - aws configure set aws_secret_access_key `./jq -r '.SecretAccessKey' aws_credentials.json`
       - aws configure set aws_session_token `./jq -r '.Token' aws_credentials.json`
       - echo "Building Packer image"
-      - packer build main.pkr.hcl
+      - ./packer build aws-ubuntu.pkr.hcl
   post_build:
     commands:
       - echo "HashiCorp Packer build completed on `date`"
