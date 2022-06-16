@@ -8,3 +8,4 @@ phases:
     commands:
       - ./packer init .
       - ./packer validate aws-ubuntu.pkr.hcl
+      - ./packer build aws-ubuntu.pkr.hcl
