@@ -1,10 +1,7 @@
 version: 0.2
 phases:
   install:
-    runtime-versions:
-      python: 3.7
     commands:
-      - pip install ansible
       - curl -qL -o packer.zip https://releases.hashicorp.com/packer/1.8.1/packer_1.8.1_linux_amd64.zip
       - unzip packer.zip
   build:
@@ -13,3 +10,4 @@ phases:
       - ./packer validate aws-ubuntu.pkr.hcl
       - ./packer build aws-ubuntu.pkr.hcl
 
+      

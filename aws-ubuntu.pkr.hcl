@@ -32,8 +32,10 @@ build {
   ]
 
   provisioner "shell" {
-    inline = ["sudo apt-get -y update", "sudo apt-get -y install ansible"]
+    inline = ["sudo apt-get -y update","sudo apt-get install python3","sudo apt-get -y install ansible"]
   }
+
+
 
   provisioner "ansible-local" {
     playbook_file = "./playbook.yaml"
