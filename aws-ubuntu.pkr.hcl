@@ -32,9 +32,12 @@ build {
   ]
 
   provisioner "shell" {
-    inline = ["sudo apt-get -y update","sleep 20s","sudo apt-get -y install ansible"]
+    inline = ["sudo apt-get -y update","sleep 20s"]
   }
 
+  provisioner "shell" {
+    inline = ["sudo apt-get -y install ansible"]
+  }
 
 
   provisioner "ansible-local" {
