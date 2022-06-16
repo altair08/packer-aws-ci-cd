@@ -31,14 +31,10 @@ build {
     "source.amazon-ebs.aws-ubuntu"
   ]
 
-  provisioner "shell" {
-    inline = ["sudo apt-get -y update","sleep 20s"]
-  }
 
   provisioner "shell" {
-    inline = ["sudo apt-get -y install ansible"]
+    script = "./install-ansible.sh"
   }
-
 
   provisioner "ansible-local" {
     playbook_file = "./playbook.yaml"
