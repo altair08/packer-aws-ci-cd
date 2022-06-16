@@ -6,4 +6,5 @@ phases:
       - unzip packer.zip
   build:
     commands:
+      - ./packer init .
       - ./packer validate aws-ubuntu.pkr.hcl
